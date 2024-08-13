@@ -34,7 +34,7 @@ class _CurrencyConverterMaterialpage1State
                 padding: const EdgeInsets.all(10.0),
                 child: Text(
                   textAlign: TextAlign.center,
-                  "${_controller.text} dollars = ${result.toString()} rupees",
+                  getConvertedValue(),
                   textDirection: TextDirection.ltr,
                   style: const TextStyle(
                       color: textColor,
@@ -54,7 +54,7 @@ class _CurrencyConverterMaterialpage1State
                     ),
                     prefixIcon: Icon(Icons.currency_exchange),
                     prefixIconColor: iconColor,
-                    labelText: "Enter amount",
+                    labelText: "Enter amount in USD",
                   ),
                   style: const TextStyle(
                     color: textColor,
@@ -72,8 +72,10 @@ class _CurrencyConverterMaterialpage1State
                     ),
                     onPressed: () => {
                           setState(() {
-                            result = double.parse(_controller.text) *
-                                dollarConversionValue;
+                            if (_controller.text.isNotEmpty) {
+                              result = double.parse(_controller.text) *
+                                  dollarToRupeeConversionValue;
+                            }
                           }),
                         },
                     child: const Text("Convert")),
@@ -83,5 +85,12 @@ class _CurrencyConverterMaterialpage1State
         ),
       ),
     );
+  }
+
+  String getConvertedValue() {
+    if (_controller.text.isEmpty) {
+      return "";
+    }
+    return "${_controller.text} dollars = ${result.toString()} rupees";
   }
 }

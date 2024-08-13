@@ -1,1 +1,1 @@
-const double dollarConversionValue = 81;
+const dollarToRupeeConversionValue = 81;
