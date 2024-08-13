@@ -7,36 +7,44 @@ class CurrencyConverterMaterialpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color.fromRGBO(50, 50, 50, 0.2),
+        foregroundColor: Colors.black,
+        title: const Text("Currency Converter"),
+        centerTitle: true,
+      ),
       body: ColoredBox(
-        color: const Color.fromRGBO(255, 0, 0, 0.2),
+        color: const Color.fromRGBO(50, 50, 50, 0.2),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Text(
-                "Hello, world",
+                "0",
                 textDirection: TextDirection.ltr,
                 style: TextStyle(
-                    color: Colors.green,
+                    color: Colors.black,
                     fontSize: 36,
                     fontWeight: FontWeight.bold),
               ),
               const Padding(
-                padding: EdgeInsets.all(50.0),
+                padding: EdgeInsets.all(10.0),
                 child: TextField(
                   keyboardType: TextInputType.numberWithOptions(
                       signed: true, decimal: true),
                   decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.access_alarm),
-                      prefixIconColor: Colors.orange,
-                      prefixStyle:
-                          TextStyle(textBaseline: TextBaseline.alphabetic),
-                      hintText: "This is hint",
-                      labelText: "This is a floating label",
-                      helperText: "This is a help text"),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                    prefixIcon: Icon(Icons.currency_exchange),
+                    prefixIconColor: Colors.black,
+                    //hintText: "This is hint",
+                    labelText: "Enter amount",
+                    //helperText: "This is a help text",
+                  ),
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ),
               ),
@@ -55,7 +63,7 @@ class CurrencyConverterMaterialpage extends StatelessWidget {
                               debugPrint("Hello"),
                             }
                         },
-                    child: const Text("Click here")),
+                    child: const Text("Convert")),
               ),
             ],
           ),
