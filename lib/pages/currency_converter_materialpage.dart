@@ -1,5 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application1/Constants/app_constants.dart';
 import 'package:flutter_application1/Constants/color_constants.dart';
 
 class CurrencyConverterMaterialpage extends StatefulWidget {
@@ -12,6 +12,8 @@ class CurrencyConverterMaterialpage extends StatefulWidget {
 
 class _CurrencyConverterMaterialpage1State
     extends State<CurrencyConverterMaterialpage> {
+  final TextEditingController _controller = TextEditingController();
+  double result = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,30 +30,33 @@ class _CurrencyConverterMaterialpage1State
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Text(
-                "0",
-                textDirection: TextDirection.ltr,
-                style: TextStyle(
-                    color: textColor,
-                    fontSize: 36,
-                    fontWeight: FontWeight.bold),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text(
+                  textAlign: TextAlign.center,
+                  "${_controller.text} dollars = ${result.toString()} rupees",
+                  textDirection: TextDirection.ltr,
+                  style: const TextStyle(
+                      color: textColor,
+                      fontSize: 36,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
-              const Padding(
-                padding: EdgeInsets.all(10.0),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
                 child: TextField(
-                  keyboardType: TextInputType.numberWithOptions(
+                  controller: _controller,
+                  keyboardType: const TextInputType.numberWithOptions(
                       signed: true, decimal: true),
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
                     prefixIcon: Icon(Icons.currency_exchange),
                     prefixIconColor: iconColor,
-                    //hintText: "This is hint",
                     labelText: "Enter amount",
-                    //helperText: "This is a help text",
                   ),
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: textColor,
                   ),
                 ),
@@ -66,10 +71,10 @@ class _CurrencyConverterMaterialpage1State
                       elevation: 2,
                     ),
                     onPressed: () => {
-                          if (kDebugMode)
-                            {
-                              debugPrint("Hello"),
-                            }
+                          setState(() {
+                            result = double.parse(_controller.text) *
+                                dollarConversionValue;
+                          }),
                         },
                     child: const Text("Convert")),
               ),
