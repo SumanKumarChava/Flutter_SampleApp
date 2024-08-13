@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application1/Constants/color_constants.dart';
 
 class CurrencyConverterMaterialpage extends StatefulWidget {
   const CurrencyConverterMaterialpage({super.key});
@@ -15,13 +16,13 @@ class _CurrencyConverterMaterialpage1State
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(50, 50, 50, 0.2),
-        foregroundColor: Colors.black,
+        backgroundColor: pageBackgroundColor,
+        foregroundColor: pageForegroundColor,
         title: const Text("Currency Converter"),
         centerTitle: true,
       ),
       body: ColoredBox(
-        color: const Color.fromRGBO(50, 50, 50, 0.2),
+        color: pageBackgroundColor,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -31,7 +32,7 @@ class _CurrencyConverterMaterialpage1State
                 "0",
                 textDirection: TextDirection.ltr,
                 style: TextStyle(
-                    color: Colors.black,
+                    color: textColor,
                     fontSize: 36,
                     fontWeight: FontWeight.bold),
               ),
@@ -45,13 +46,13 @@ class _CurrencyConverterMaterialpage1State
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
                     prefixIcon: Icon(Icons.currency_exchange),
-                    prefixIconColor: Colors.black,
+                    prefixIconColor: iconColor,
                     //hintText: "This is hint",
                     labelText: "Enter amount",
                     //helperText: "This is a help text",
                   ),
                   style: TextStyle(
-                    color: Colors.black,
+                    color: textColor,
                   ),
                 ),
               ),
@@ -59,8 +60,8 @@ class _CurrencyConverterMaterialpage1State
                 padding: const EdgeInsets.all(10.0),
                 child: ElevatedButton(
                     style: TextButton.styleFrom(
-                      backgroundColor: Colors.red,
-                      foregroundColor: Colors.white,
+                      backgroundColor: buttonBackgroundColor,
+                      foregroundColor: buttonForegroundColor,
                       minimumSize: const Size(double.infinity, 50),
                       elevation: 2,
                     ),
