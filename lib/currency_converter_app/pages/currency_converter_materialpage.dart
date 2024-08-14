@@ -1,31 +1,30 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application1/Constants/app_constants.dart';
-import 'package:flutter_application1/Constants/color_constants.dart';
+import 'package:flutter_application1/currency_converter_app/Constants/app_constants.dart';
+import 'package:flutter_application1/currency_converter_app/Constants/color_constants.dart';
 
-class CurrencyConverterCupertinopage extends StatefulWidget {
-  const CurrencyConverterCupertinopage({super.key});
+class CurrencyConverterMaterialpage extends StatefulWidget {
+  const CurrencyConverterMaterialpage({super.key});
 
   @override
-  State<CurrencyConverterCupertinopage> createState() =>
-      _CurrencyConverterCupertinopageState();
+  State<CurrencyConverterMaterialpage> createState() =>
+      _CurrencyConverterMaterialpage1State();
 }
 
-class _CurrencyConverterCupertinopageState
-    extends State<CurrencyConverterCupertinopage> {
+class _CurrencyConverterMaterialpage1State
+    extends State<CurrencyConverterMaterialpage> {
   final TextEditingController _controller = TextEditingController();
   double result = 0;
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        backgroundColor: cupertinoPageBackgroundColor,
-        brightness: Brightness.dark,
-        middle: Text("Currency Converter"),
-        //centerTitle: true,
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: pageBackgroundColor,
+        foregroundColor: pageForegroundColor,
+        title: const Text("Currency Converter"),
+        centerTitle: true,
       ),
-      child: ColoredBox(
-        color: cupertinoPageBackgroundColor,
+      body: ColoredBox(
+        color: pageBackgroundColor,
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(leftAndRightPadding),
@@ -38,21 +37,35 @@ class _CurrencyConverterCupertinopageState
                   getConvertedValue(),
                   textDirection: TextDirection.ltr,
                   style: const TextStyle(
-                      color: cupertinoTextColor,
+                      color: textColor,
                       fontSize: 36,
                       fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: spaceBetweenUIElements),
-                CupertinoTextField(
+                TextField(
                   controller: _controller,
                   keyboardType: const TextInputType.numberWithOptions(
                       signed: true, decimal: true),
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                    prefixIcon: Icon(Icons.currency_exchange),
+                    prefixIconColor: iconColor,
+                    labelText: "Enter amount in USD",
+                  ),
                   style: const TextStyle(
-                    color: cupertinoTextColor,
+                    color: textColor,
                   ),
                 ),
                 const SizedBox(height: spaceBetweenUIElements),
-                CupertinoButton(
+                ElevatedButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: buttonBackgroundColor,
+                      foregroundColor: buttonForegroundColor,
+                      minimumSize: const Size(double.infinity, 50),
+                      elevation: 2,
+                    ),
                     onPressed: () => {
                           setState(() {
                             if (_controller.text.isNotEmpty) {
