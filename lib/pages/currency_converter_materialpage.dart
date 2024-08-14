@@ -26,13 +26,13 @@ class _CurrencyConverterMaterialpage1State
       body: ColoredBox(
         color: pageBackgroundColor,
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Text(
+          child: Padding(
+            padding: const EdgeInsets.all(leftAndRightPadding),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
                   textAlign: TextAlign.center,
                   getConvertedValue(),
                   textDirection: TextDirection.ltr,
@@ -41,10 +41,8 @@ class _CurrencyConverterMaterialpage1State
                       fontSize: 36,
                       fontWeight: FontWeight.bold),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: TextField(
+                const SizedBox(height: spaceBetweenUIElements),
+                TextField(
                   controller: _controller,
                   keyboardType: const TextInputType.numberWithOptions(
                       signed: true, decimal: true),
@@ -60,10 +58,8 @@ class _CurrencyConverterMaterialpage1State
                     color: textColor,
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: ElevatedButton(
+                const SizedBox(height: spaceBetweenUIElements),
+                ElevatedButton(
                     style: TextButton.styleFrom(
                       backgroundColor: buttonBackgroundColor,
                       foregroundColor: buttonForegroundColor,
@@ -78,9 +74,9 @@ class _CurrencyConverterMaterialpage1State
                             }
                           }),
                         },
-                    child: const Text("Convert")),
-              ),
-            ],
+                    child: const Text("Convert to INR")),
+              ],
+            ),
           ),
         ),
       ),
@@ -91,6 +87,6 @@ class _CurrencyConverterMaterialpage1State
     if (_controller.text.isEmpty) {
       return "";
     }
-    return "${_controller.text} dollars = ${result.toString()} rupees";
+    return "${_controller.text} dollars = ${result != 0 ? result.toStringAsFixed(2) : result.toStringAsFixed(0)} rupees";
   }
 }
