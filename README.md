@@ -1,16 +1,11 @@
-# flutter_application1
+This is a practice reporsitory where I have tried implementing UI through flutter.
 
-A new Flutter project.
+Implemented below two screens as part of learning.
 
-## Getting Started
+a) Dollar to INR conversion page
 
-This project is a starting point for a Flutter application.
+![alt text](<Simulator Screenshot - iPhone 14 - 2024-08-15 at 14.48.41.png>)
 
-A few resources to get you started if this is your first Flutter project:
+b) Getting weather data from api and bind it to below UI :
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![alt text](<Simulator Screenshot - iPhone 14 - 2024-08-15 at 14.48.41.png>)
