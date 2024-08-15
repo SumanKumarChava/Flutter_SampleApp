@@ -32,16 +32,6 @@ class _CurrencyConverterMaterialpage1State
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  textAlign: TextAlign.center,
-                  getConvertedValue(),
-                  textDirection: TextDirection.ltr,
-                  style: const TextStyle(
-                      color: textColor,
-                      fontSize: 36,
-                      fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: spaceBetweenUIElements),
                 TextField(
                   controller: _controller,
                   keyboardType: const TextInputType.numberWithOptions(
@@ -75,6 +65,16 @@ class _CurrencyConverterMaterialpage1State
                           }),
                         },
                     child: const Text("Convert to INR")),
+                const SizedBox(height: 40),
+                Text(
+                  textAlign: TextAlign.center,
+                  getConvertedValue(),
+                  textDirection: TextDirection.ltr,
+                  style: const TextStyle(
+                      color: textColor,
+                      fontSize: 36,
+                      fontWeight: FontWeight.bold),
+                ),
               ],
             ),
           ),
