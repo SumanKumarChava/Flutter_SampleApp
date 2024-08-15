@@ -1,4 +1,4 @@
-This is a practice reporsitory where I have tried implementing UI through flutter.
+This is a practice repository where I have tried implementing UI through flutter.
 
 Implemented below two screens as part of learning.
 
