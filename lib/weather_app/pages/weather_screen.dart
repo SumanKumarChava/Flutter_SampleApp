@@ -1,5 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_application1/weather_app/widgets/additional_info_item.dart';
+import 'package:flutter_application1/weather_app/widgets/houly_weather_forecast_card.dart';
 
 class WeatherScreen extends StatefulWidget {
   const WeatherScreen({super.key});
@@ -101,12 +103,30 @@ class _WeatherScreenState extends State<WeatherScreen> {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  HoulyWeatherForecastCard(),
-                  HoulyWeatherForecastCard(),
-                  HoulyWeatherForecastCard(),
-                  HoulyWeatherForecastCard(),
-                  HoulyWeatherForecastCard(),
-                  HoulyWeatherForecastCard(),
+                  HoulyWeatherForecastCard(
+                    hours: "09:00",
+                    temperature: "301.7",
+                  ),
+                  HoulyWeatherForecastCard(
+                    hours: "12:00",
+                    temperature: "302.7",
+                  ),
+                  HoulyWeatherForecastCard(
+                    hours: "15:00",
+                    temperature: "303.7",
+                  ),
+                  HoulyWeatherForecastCard(
+                    hours: "18:00",
+                    temperature: "304.7",
+                  ),
+                  HoulyWeatherForecastCard(
+                    hours: "21:00",
+                    temperature: "305.7",
+                  ),
+                  HoulyWeatherForecastCard(
+                    hours: "00:00",
+                    temperature: "306.7",
+                  ),
                 ],
               ),
             ),
@@ -127,87 +147,22 @@ class _WeatherScreenState extends State<WeatherScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AdditionalInfoItem(),
-                AdditionalInfoItem(),
-                AdditionalInfoItem()
+                AdditionalInfoItem(
+                  icon: Icons.water_drop,
+                  label: "Humidity",
+                  value: "94",
+                ),
+                AdditionalInfoItem(
+                  icon: Icons.air,
+                  label: "Wind Speed",
+                  value: "7.67",
+                ),
+                AdditionalInfoItem(
+                  icon: Icons.beach_access,
+                  label: "Pressure",
+                  value: "1006",
+                ),
               ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class AdditionalInfoItem extends StatelessWidget {
-  const AdditionalInfoItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Column(children: [
-      Icon(
-        Icons.water_drop,
-        size: 32,
-      ),
-      SizedBox(
-        height: 6,
-      ),
-      Text(
-        "Humidity",
-        style: TextStyle(
-          fontWeight: FontWeight.normal,
-          fontSize: 12,
-        ),
-      ),
-      SizedBox(
-        height: 6,
-      ),
-      Text(
-        "94",
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 14,
-        ),
-      ),
-    ]);
-  }
-}
-
-class HoulyWeatherForecastCard extends StatelessWidget {
-  const HoulyWeatherForecastCard({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: Container(
-        padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-        child: const Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Text(
-              "09:00",
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(
-              height: 6,
-            ),
-            Icon(
-              Icons.cloud,
-              size: 32,
-            ),
-            SizedBox(
-              height: 6,
-            ),
-            Text(
-              "301.17",
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.normal,
-              ),
             ),
           ],
         ),

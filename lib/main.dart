@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application1/currency_converter_app/pages/currency_converter_cupertinopage.dart';
-import 'package:flutter_application1/weather_app/weather_screen.dart';
+import 'package:flutter_application1/weather_app/pages/weather_screen.dart';
 import 'currency_converter_app/pages/currency_converter_materialpage.dart';
 
 void main() {
