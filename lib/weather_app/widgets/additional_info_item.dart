@@ -23,20 +23,14 @@ class AdditionalInfoItem extends StatelessWidget {
       ),
       Text(
         label,
-        style: const TextStyle(
-          fontWeight: FontWeight.normal,
-          fontSize: 12,
-        ),
+        style: Theme.of(context).textTheme.bodyLarge,
       ),
       const SizedBox(
         height: 6,
       ),
       Text(
         value,
-        style: const TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 14,
-        ),
+        style: Theme.of(context).textTheme.bodyLarge,
       ),
     ]);
   }

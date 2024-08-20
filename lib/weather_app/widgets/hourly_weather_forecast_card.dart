@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class HoulyWeatherForecastCard extends StatelessWidget {
+class HourlyWeatherForecastCard extends StatelessWidget {
   final String hours;
   final String temperature;
-  const HoulyWeatherForecastCard({
+  const HourlyWeatherForecastCard({
     super.key,
     required this.hours,
     required this.temperature,
@@ -20,10 +20,7 @@ class HoulyWeatherForecastCard extends StatelessWidget {
           children: [
             Text(
               hours,
-              style: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-              ),
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
             const SizedBox(
               height: 6,
@@ -37,10 +34,7 @@ class HoulyWeatherForecastCard extends StatelessWidget {
             ),
             Text(
               temperature,
-              style: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.normal,
-              ),
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
           ],
         ),

@@ -7,8 +7,13 @@ class WeatherScreenApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      themeMode: ThemeMode.light,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(useMaterial3: true),
+      theme: ThemeData(
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: const Color.fromRGBO(255, 0, 0, 1)),
+        useMaterial3: true,
+      ),
       home: const WeatherScreen(),
     );
   }

@@ -44,9 +44,7 @@ class _CurrencyConverterMaterialpage1State
                     prefixIconColor: iconColor,
                     labelText: "Enter amount in USD",
                   ),
-                  style: const TextStyle(
-                    color: textColor,
-                  ),
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
                 const SizedBox(height: spaceBetweenUIElements),
                 ElevatedButton(
@@ -70,11 +68,8 @@ class _CurrencyConverterMaterialpage1State
                   textAlign: TextAlign.center,
                   getConvertedValue(),
                   textDirection: TextDirection.ltr,
-                  style: const TextStyle(
-                      color: textColor,
-                      fontSize: 36,
-                      fontWeight: FontWeight.bold),
-                ),
+                  style: Theme.of(context).textTheme.titleLarge,
+                )
               ],
             ),
           ),
